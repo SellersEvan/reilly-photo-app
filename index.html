@@ -1,0 +1,268 @@
+
+
+
+<body>
+
+    <script src="https://rawcdn.githack.com/nextapps-de/spotlight/0.7.8/dist/spotlight.bundle.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+
+    <title>Evan & Reilly's Adventures</title>
+
+    <script>
+
+        const images = [
+            {
+                "image": "img-1.jpg",
+                "date": "Nov '22",
+                "description": "Every will be wearing Sanata hats!"
+            },
+            {
+                "image": "img-2.jpg",
+                "date": "Nov '22",
+                "description": "It snowed? Christmas?"
+            },
+            {
+                "image": "img-3.jpg",
+                "date": "Oct '22",
+                "description": "Indy & Lara's Adventures"
+            },
+            {
+                "image": "img-4.jpg",
+                "date": "Oct '22",
+                "description": "Pretty Brown Eyed Country Girl"
+            },
+            {
+                "image": "img-5.jpg",
+                "date": "Sep '22",
+                "description": "Photo Op w/ Cheer Leaders"
+            },
+            {
+                "image": "img-6.jpg",
+                "date": "Sep '22",
+                "description": "Rising Country Singer Star"
+            },
+            {
+                "image": "img-7.jpg",
+                "date": "Sep '22",
+                "description": "First Day of School (Take 15)"
+            },
+            {
+                "image": "img-8.jpg",
+                "date": "Aug '22",
+                "description": "Beach Club HH"
+            },
+            {
+                "image": "img-9.jpg",
+                "date": "Aug '22",
+                "description": "Story Teller Again?"
+            },
+            {
+                "image": "img-10.jpg",
+                "date": "Aug '22",
+                "description": "Can I go home yet?"
+            },
+            {
+                "image": "img-11.jpg",
+                "date": "Aug '22",
+                "description": "Wait, I have seen this photo"
+            },
+            {
+                "image": "img-12.jpg",
+                "date": "May '22",
+                "description": "Do you actually ride that much in HH?"
+            },
+            {
+                "image": "img-13.jpg",
+                "date": "Apr '22",
+                "description": "Pro GeoCache Hunters"
+            },
+            {
+                "image": "img-14.jpg",
+                "date": "Apr '22",
+                "description": "Easter 2022"
+            },
+            {
+                "image": "img-15.jpg",
+                "date": "Mar '22",
+                "description": "Is this the Black Dimond?"
+            },
+            {
+                "image": "img-16.jpg",
+                "date": "Mar '22",
+                "description": "Don't Fall!"
+            },
+            {
+                "image": "img-17.jpg",
+                "date": "Mar '22",
+                "description": "I can't feel my toes"
+            },
+            {
+                "image": "img-18.jpg",
+                "date": "Feb '22",
+                "description": "Reilly fell in the water"
+            },
+            {
+                "image": "img-19.jpg",
+                "date": "Dec '21",
+                "description": "Christmas 2021"
+            },
+            {
+                "image": "img-20.jpg",
+                "date": "Dec '21",
+                "description": "Do you want your picture taken?"
+            },
+            {
+                "image": "img-21.jpg",
+                "date": "Nov '21",
+                "description": "I am not cold, your cold"
+            },
+            {
+                "image": "img-22.jpg",
+                "date": "Oct '21",
+                "description": "Steve Jobs? Greek Goddess? Makes sense."
+            },
+            {
+                "image": "img-23.jpg",
+                "date": "Oct '21",
+                "description": "Party like it's 2021!"
+            },
+            {
+                "image": "img-24.jpg",
+                "date": "Oct '21",
+                "description": "Home Coming, Home Staying?"
+            },
+            {
+                "image": "img-25.jpg",
+                "date": "Sep '21",
+                "description": "Nothing important, she just looked cute!"
+            },
+            {
+                "image": "img-26.jpg",
+                "date": "Sep '21",
+                "description": "I am on my way down!"
+            },
+            {
+                "image": "img-27.jpg",
+                "date": "Aug '21",
+                "description": "Elephant Ear!"
+            },
+            {
+                "image": "img-28.jpg",
+                "date": "Jul '21",
+                "description": "Just lookin cute"
+            },
+            {
+                "image": "img-29.jpg",
+                "date": "Jul '21",
+                "description": "Boodly Mary's"
+            },
+            {
+                "image": "img-30.jpg",
+                "date": "May '21",
+                "description": "Some night"
+            },
+            {
+                "image": "img-31.jpg",
+                "date": "Mar '21",
+                "description": "Chicago Trip"
+            }
+        ];
+
+
+        let buildPolaroid = (data, index) => {
+            let orintation = "o1";
+            if (index % 4 == 1) {
+                orintation = "o2";
+            } else if (index % 4 == 2) {
+                orintation = "o3";
+            } else if (index % 4 == 3) {
+                orintation = "o4";
+            }
+            return `<div class="polaroid ${orintation}">
+                <div class="date">
+                    ${data["date"]}
+                </div>
+                <div class="image">
+                    <a class="spotlight" href="images/${data["image"]}" data-description="${data["date"]} - ${data["description"]}" data-play="true" data-infinite="true" data-autofit="false" data-zoom-in="false">
+                        <img src="images/${data["image"]}"/>
+                    </a>
+                </div>
+                <div class="caption">
+                    ${data["description"]}
+                </div>
+            </div>`;
+        }
+
+
+        window.addEventListener("load", (event) => {
+            let buffer = images.map((data, index) => buildPolaroid(data, index)).join("\n");
+            document.querySelector(".gallary").innerHTML = buffer;
+        });
+
+
+
+    </script>
+
+    <div>
+        <h1>Evan & Reilly's<br>Adventures</h1>
+    </div>
+
+    <div class="gallary">
+
+        <!-- Insert Images Here -->
+
+        <div class="polaroid o1">
+            <div class="date">
+                Sept '22
+            </div>
+            <div class="image">
+                <a class="spotlight" href="images/img-1.jpg" data-description="Sept '22 - Christmas Vibes" data-play="true" data-infinite="true" data-autofit="false" data-zoom-in="false">
+                    <img src="images/img-1.jpg"/>
+                </a>
+            </div>
+            <div class="caption">
+                Christmas Vibes
+            </div>
+        </div>
+
+        <div class="polaroid o2">
+            <div class="date">
+                Sept '22
+            </div>
+            <div class="image">
+                <a class="spotlight" href="images/img-1.jpg">
+                    <img src="images/img-1.jpg"/>
+                </a>
+            </div>
+            <div class="caption">
+                Christmas Vibes
+            </div>
+        </div>
+
+        <div class="polaroid o3">
+            <div class="date">
+                Sept '22
+            </div>
+            <div class="image">
+                <a class="spotlight" href="images/img-1.jpg">
+                    <img src="images/img-1.jpg"/>
+                </a>
+            </div>
+            <div class="caption">
+                Christmas Vibes
+            </div>
+        </div>
+
+
+
+    </div>
+
+</body>
+
+
+
